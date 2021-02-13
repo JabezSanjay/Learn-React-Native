@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Alert, Platform, StatusBar } from "react-native";
 import styled from "styled-components";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 const App = () => {
   const [state, setState] = useState(0);
+
   return (
     <MainView>
       <MainText>You clicked {state} times</MainText>
@@ -19,7 +24,12 @@ const App = () => {
                 console.log("Yes");
               },
             },
-            { text: "No" },
+            {
+              text: "No",
+              onPress: () => {
+                console.log("No");
+              },
+            },
           ])
         }
       >
@@ -44,13 +54,15 @@ export default App;
 
 const MainView = styled.SafeAreaView`
   padding-top: ${Platform.OS === "android" ? StatusBar.currentHeight : 0}px;
+  flex: 1;
   align-items: center;
+  justify-content: space-evenly;
+  background-color: dodgerblue;
 `;
 
 const MainText = styled.Text`
   font-size: 20px;
   color: black;
-  margin-bottom: 10px;
 `;
 
 const MainButton = styled.TouchableOpacity`
@@ -59,7 +71,6 @@ const MainButton = styled.TouchableOpacity`
   padding: 8px;
   border-radius: 10px;
   background-color: #4caf50;
-  margin-bottom: 10px;
 `;
 
 const ButtonText = styled.Text`
