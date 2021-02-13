@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Alert } from "react-native";
+import { Alert, Platform, StatusBar } from "react-native";
 import styled from "styled-components";
 
 const App = () => {
@@ -43,16 +42,15 @@ const App = () => {
 
 export default App;
 
-const MainView = styled.View`
-  flex: 1;
+const MainView = styled.SafeAreaView`
+  padding-top: ${Platform.OS === "android" ? StatusBar.currentHeight : 0}px;
   align-items: center;
-  justify-content: center;
 `;
 
 const MainText = styled.Text`
   font-size: 20px;
   color: black;
-  margin: 10px;
+  margin-bottom: 10px;
 `;
 
 const MainButton = styled.TouchableOpacity`
@@ -61,7 +59,7 @@ const MainButton = styled.TouchableOpacity`
   padding: 8px;
   border-radius: 10px;
   background-color: #4caf50;
-  margin: 10px;
+  margin-bottom: 10px;
 `;
 
 const ButtonText = styled.Text`
@@ -70,6 +68,4 @@ const ButtonText = styled.Text`
   color: white;
 `;
 
-const MainImage = styled.Image`
-  margin: 10px;
-`;
+const MainImage = styled.Image``;
