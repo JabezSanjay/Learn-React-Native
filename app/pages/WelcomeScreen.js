@@ -12,7 +12,7 @@ const WelcomeScreen = () => {
         onPress={() => console.log("Signup Pressed")}
       ></WelcomeSignup>
       <WelcomeSignin
-        onPress={() => console.log("Signin Pressed")}
+        onPress={() => console.log("Sign-in Pressed")}
       ></WelcomeSignin>
     </WelcomeBackground>
   );
