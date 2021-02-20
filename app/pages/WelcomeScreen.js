@@ -6,6 +6,8 @@ import {
   SafeAreaView,
   Text,
   Alert,
+  Platform,
+  StatusBar,
 } from "react-native";
 
 const Separator = () => <View style={styles.separator} />;
@@ -72,13 +74,16 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     marginHorizontal: 16,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     textAlign: "center",
     marginVertical: 8,
   },
+
   fixToText: {
     flexDirection: "row",
     justifyContent: "space-evenly",
