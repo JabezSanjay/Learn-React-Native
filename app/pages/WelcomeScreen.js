@@ -22,27 +22,30 @@ const WelcomeScreen = () => {
         style={styles.input}
         underlineColorAndroid="transparent"
         placeholder="Name"
-        placeholderTextColor="#9a73ef"
+        placeholderTextColor="#CFCFD0"
         autoCapitalize="none"
       />
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
         placeholder="Email"
-        placeholderTextColor="#9a73ef"
+        placeholderTextColor="#CFCFD0"
         autoCapitalize="none"
       />
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
         placeholder="Password"
-        placeholderTextColor="#9a73ef"
+        placeholderTextColor="#CFCFD0"
         autoCapitalize="none"
       />
 
       <TouchableOpacity style={styles.submitButton}>
-        <Text style={styles.submitButtonText}> Submit </Text>
+        <Text style={styles.submitButtonText}>Create Account</Text>
       </TouchableOpacity>
+      <View style={styles.subContainer}>
+        <Text style={styles.subText}>Already have an account?</Text>
+      </View>
     </View>
   );
 };
@@ -54,35 +57,50 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#fff",
   },
   image: {
     height: Dimensions.get("window").height / 4,
-    width: Dimensions.get("window").width - 150,
+    width: Dimensions.get("window").width - 100,
+    marginVertical: 10,
   },
   mainText: {
-    color: "#7a42f4",
-    fontSize: 20,
+    color: "#0A6DD6",
+    fontSize: 24,
+    fontWeight: "bold",
+    width: Dimensions.get("window").width - 100,
+    marginVertical: 10,
+    letterSpacing: 1,
   },
   input: {
-    padding: 10,
-    margin: 15,
+    marginVertical: 10,
     height: 40,
-    borderColor: "#7a42f4",
-    borderWidth: 1,
-    width: Dimensions.get("window").width - 150,
-    borderRadius: 99,
-    textAlign: "center",
+    borderColor: "#BBBBBB",
+    borderBottomWidth: 1,
+    width: Dimensions.get("window").width - 100,
   },
   submitButton: {
-    backgroundColor: "#7a42f4",
-    padding: 10,
-    margin: 15,
-    height: 40,
-    width: Dimensions.get("window").width - 150,
+    backgroundColor: "#0A6DD6",
+    padding: 12.5,
+    marginVertical: 20,
+    height: 50,
+    width: Dimensions.get("window").width - 100,
     borderRadius: 100,
   },
   submitButtonText: {
     color: "white",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
     textAlign: "center",
+    fontSize: 16,
+    letterSpacing: 0.5,
+  },
+  subContainer: {
+    backgroundColor: "#BBBBBB",
+    height: 75,
+    width: Dimensions.get("window").width,
+    position: "absolute",
+    bottom: 0,
   },
 });
