@@ -7,11 +7,16 @@ import {
   TextInput,
   TouchableOpacity,
   Dimensions,
+  Image,
 } from "react-native";
 
 const WelcomeScreen = () => {
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={require("../assets/images/signup.png")}
+      />
       <Text style={styles.mainText}>Sign Up</Text>
       <TextInput
         style={styles.input}
@@ -43,6 +48,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  image: {
+    height: Dimensions.get("window").height / 4,
+    width: Dimensions.get("window").width - 150,
   },
   mainText: {
     color: "#7a42f4",
