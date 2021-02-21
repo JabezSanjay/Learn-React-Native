@@ -7,8 +7,10 @@ import {
   TextInput,
   Dimensions,
   Image,
-  TouchableHighlight,
+  TouchableOpacity,
 } from "react-native";
+import COLORS from "../assets/colors";
+import DIMENSIONS from "../assets/dimensions";
 
 const WelcomeScreen = () => {
   return (
@@ -22,32 +24,32 @@ const WelcomeScreen = () => {
         style={styles.input}
         underlineColorAndroid="transparent"
         placeholder="Name"
-        placeholderTextColor="#CFCFD0"
+        placeholderTextColor={COLORS.mediumGrey}
         autoCapitalize="none"
       />
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
         placeholder="Email"
-        placeholderTextColor="#CFCFD0"
+        placeholderTextColor={COLORS.mediumGrey}
         autoCapitalize="none"
       />
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
         placeholder="Password"
-        placeholderTextColor="#CFCFD0"
+        placeholderTextColor={COLORS.mediumGrey}
         autoCapitalize="none"
       />
 
-      <TouchableHighlight style={styles.submitButton}>
+      <TouchableOpacity style={styles.submitButton}>
         <Text style={styles.submitButtonText}>Create Account</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
       <View style={styles.subContainer}>
         <Text style={{ color: "#C2C2C1" }}>Already have an account? </Text>
-        <TouchableHighlight>
+        <TouchableOpacity>
           <Text style={{ color: "#0A6DD6" }}> Login</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -60,34 +62,34 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.whiteColor,
   },
   image: {
-    height: Dimensions.get("window").height / 4,
-    width: Dimensions.get("window").width - 100,
+    height: DIMENSIONS.height / 4,
+    width: DIMENSIONS.width - 100,
     marginVertical: 10,
   },
   mainText: {
-    color: "#0A6DD6",
+    color: COLORS.mainBlueColor,
     fontSize: 24,
     fontWeight: "bold",
-    width: Dimensions.get("window").width - 100,
+    width: DIMENSIONS.width - 100,
     marginVertical: 10,
     letterSpacing: 1,
   },
   input: {
     marginVertical: 10,
     height: 40,
-    borderColor: "#BBBBBB",
+    borderColor: COLORS.mediumGrey,
     borderBottomWidth: 1,
-    width: Dimensions.get("window").width - 100,
+    width: DIMENSIONS.width - 100,
   },
   submitButton: {
-    backgroundColor: "#0A6DD6",
+    backgroundColor: COLORS.mainBlueColor,
     padding: 12.5,
     marginVertical: 20,
     height: 50,
-    width: Dimensions.get("window").width - 100,
+    width: DIMENSIONS.width - 100,
     borderRadius: 100,
   },
   submitButtonText: {
@@ -102,8 +104,8 @@ const styles = StyleSheet.create({
   subContainer: {
     position: "absolute",
     bottom: 0,
-    backgroundColor: "#F7F7F7",
-    width: Dimensions.get("window").width,
+    backgroundColor: COLORS.lightGrey,
+    width: DIMENSIONS.width,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
