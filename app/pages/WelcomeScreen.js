@@ -5,9 +5,9 @@ import {
   SafeAreaView,
   Text,
   TextInput,
-  TouchableOpacity,
   Dimensions,
   Image,
+  TouchableHighlight,
 } from "react-native";
 
 const WelcomeScreen = () => {
@@ -40,11 +40,14 @@ const WelcomeScreen = () => {
         autoCapitalize="none"
       />
 
-      <TouchableOpacity style={styles.submitButton}>
+      <TouchableHighlight style={styles.submitButton}>
         <Text style={styles.submitButtonText}>Create Account</Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
       <View style={styles.subContainer}>
-        <Text style={styles.subText}>Already have an account?</Text>
+        <Text style={{ color: "#C2C2C1" }}>Already have an account? </Text>
+        <TouchableHighlight>
+          <Text style={{ color: "#0A6DD6" }}> Login</Text>
+        </TouchableHighlight>
       </View>
     </View>
   );
@@ -97,10 +100,13 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   subContainer: {
-    backgroundColor: "#BBBBBB",
-    height: 75,
-    width: Dimensions.get("window").width,
     position: "absolute",
     bottom: 0,
+    backgroundColor: "#F7F7F7",
+    width: Dimensions.get("window").width,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    height: 75,
   },
 });
