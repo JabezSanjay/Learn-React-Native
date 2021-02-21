@@ -12,7 +12,7 @@ import {
 import COLORS from "../assets/colors";
 import DIMENSIONS from "../assets/dimensions";
 
-const WelcomeScreen = () => {
+const SignupScreen = () => {
   return (
     <View style={styles.container}>
       <Image
@@ -55,7 +55,7 @@ const WelcomeScreen = () => {
   );
 };
 
-export default WelcomeScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({
   container: {
