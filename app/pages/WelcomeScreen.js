@@ -21,11 +21,17 @@ const WelcomeScreen = () => {
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
+        placeholder="Name"
+        placeholderTextColor="#9a73ef"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        underlineColorAndroid="transparent"
         placeholder="Email"
         placeholderTextColor="#9a73ef"
         autoCapitalize="none"
       />
-
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
@@ -64,6 +70,8 @@ const styles = StyleSheet.create({
     borderColor: "#7a42f4",
     borderWidth: 1,
     width: Dimensions.get("window").width - 150,
+    borderRadius: 99,
+    textAlign: "center",
   },
   submitButton: {
     backgroundColor: "#7a42f4",
