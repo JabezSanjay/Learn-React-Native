@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SignupScreen from "./app/pages/SignupScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Signin from "./app/pages/SigninScreen.js";
