@@ -12,7 +12,7 @@ import {
 import COLORS from "../assets/colors";
 import DIMENSIONS from "../assets/dimensions";
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -47,7 +47,7 @@ const SignupScreen = () => {
       </TouchableOpacity>
       <View style={styles.subContainer}>
         <Text style={{ color: "#C2C2C1" }}>Already have an account? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
           <Text style={{ color: "#0A6DD6" }}> Login</Text>
         </TouchableOpacity>
       </View>
