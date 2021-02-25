@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  SafeAreaView,
   Text,
   TextInput,
-  Dimensions,
+  KeyboardAvoidingView,
   Image,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import COLORS from "../assets/colors";
 import DIMENSIONS from "../assets/dimensions";
@@ -18,43 +18,48 @@ const SigninScreen = ({ navigation }) => {
     password: "",
   });
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require("../assets/images/signin.png")}
-      />
-      <Text style={styles.mainText}>Sign In</Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/signin.png")}
+        />
+        <Text style={styles.mainText}>Sign In</Text>
 
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        placeholder="Email"
-        placeholderTextColor={COLORS.mediumGrey}
-        autoCapitalize="none"
-        onChangeText={(email) => setValues({ ...values, email })}
-        value={values.email}
-      />
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        placeholder="Password"
-        placeholderTextColor={COLORS.mediumGrey}
-        autoCapitalize="none"
-        onChangeText={(password) => setValues({ ...values, password })}
-        value={values.password}
-        secureTextEntry={true}
-      />
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Email"
+          placeholderTextColor={COLORS.mediumGrey}
+          autoCapitalize="none"
+          onChangeText={(email) => setValues({ ...values, email })}
+          value={values.email}
+        />
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Password"
+          placeholderTextColor={COLORS.mediumGrey}
+          autoCapitalize="none"
+          onChangeText={(password) => setValues({ ...values, password })}
+          value={values.password}
+          secureTextEntry={true}
+        />
 
-      <TouchableOpacity style={styles.submitButton}>
-        <Text style={styles.submitButtonText}>Login</Text>
-      </TouchableOpacity>
-      <View style={styles.subContainer}>
-        <Text style={{ color: "#C2C2C1" }}>Don't have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-          <Text style={{ color: "#0A6DD6" }}> Signup</Text>
+        <TouchableOpacity style={styles.submitButton}>
+          <Text style={styles.submitButtonText}>Login</Text>
         </TouchableOpacity>
+        <View style={styles.subContainer}>
+          <Text style={{ color: "#C2C2C1" }}>Don't have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+            <Text style={{ color: "#0A6DD6" }}> Signup</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
