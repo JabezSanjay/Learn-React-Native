@@ -18,7 +18,6 @@ const SignupScreen = ({ navigation }) => {
     email: "",
     password: "",
   });
-  console.log(values.name, values.email, values.password);
 
   return (
     <View style={styles.container}>
