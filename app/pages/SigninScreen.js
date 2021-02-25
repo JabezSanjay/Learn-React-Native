@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -13,6 +13,10 @@ import COLORS from "../assets/colors";
 import DIMENSIONS from "../assets/dimensions";
 
 const SigninScreen = ({ navigation }) => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
   return (
     <View style={styles.container}>
       <Image
@@ -27,6 +31,8 @@ const SigninScreen = ({ navigation }) => {
         placeholder="Email"
         placeholderTextColor={COLORS.mediumGrey}
         autoCapitalize="none"
+        onChangeText={(email) => setValues({ ...values, email })}
+        value={values.email}
       />
       <TextInput
         style={styles.input}
@@ -34,6 +40,8 @@ const SigninScreen = ({ navigation }) => {
         placeholder="Password"
         placeholderTextColor={COLORS.mediumGrey}
         autoCapitalize="none"
+        onChangeText={(password) => setValues({ ...values, password })}
+        value={values.password}
       />
 
       <TouchableOpacity style={styles.submitButton}>
