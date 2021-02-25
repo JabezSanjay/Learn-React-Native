@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  SafeAreaView,
   Text,
   TextInput,
-  Dimensions,
   Image,
   TouchableOpacity,
+  Platform,
+  KeyboardAvoidingView,
 } from "react-native";
 import COLORS from "../assets/colors";
 import DIMENSIONS from "../assets/dimensions";
@@ -20,51 +20,56 @@ const SignupScreen = ({ navigation }) => {
   });
 
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require("../assets/images/signup.png")}
-      />
-      <Text style={styles.mainText}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        placeholder="Name"
-        placeholderTextColor={COLORS.mediumGrey}
-        autoCapitalize="none"
-        onChangeText={(name) => setValues({ ...values, name })}
-        value={values.name}
-      />
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        placeholder="Email"
-        placeholderTextColor={COLORS.mediumGrey}
-        autoCapitalize="none"
-        onChangeText={(email) => setValues({ ...values, email })}
-        value={values.email}
-      />
-      <TextInput
-        style={styles.input}
-        underlineColorAndroid="transparent"
-        placeholder="Password"
-        placeholderTextColor={COLORS.mediumGrey}
-        autoCapitalize="none"
-        onChangeText={(password) => setValues({ ...values, password })}
-        value={values.password}
-        secureTextEntry={true}
-      />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/signup.png")}
+        />
+        <Text style={styles.mainText}>Sign Up</Text>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Name"
+          placeholderTextColor={COLORS.mediumGrey}
+          autoCapitalize="none"
+          onChangeText={(name) => setValues({ ...values, name })}
+          value={values.name}
+        />
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Email"
+          placeholderTextColor={COLORS.mediumGrey}
+          autoCapitalize="none"
+          onChangeText={(email) => setValues({ ...values, email })}
+          value={values.email}
+        />
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Password"
+          placeholderTextColor={COLORS.mediumGrey}
+          autoCapitalize="none"
+          onChangeText={(password) => setValues({ ...values, password })}
+          value={values.password}
+          secureTextEntry={true}
+        />
 
-      <TouchableOpacity style={styles.submitButton}>
-        <Text style={styles.submitButtonText}>Create Account</Text>
-      </TouchableOpacity>
-      <View style={styles.subContainer}>
-        <Text style={{ color: "#C2C2C1" }}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
-          <Text style={{ color: "#0A6DD6" }}> Login</Text>
+        <TouchableOpacity style={styles.submitButton}>
+          <Text style={styles.submitButtonText}>Create Account</Text>
         </TouchableOpacity>
+        <View style={styles.subContainer}>
+          <Text style={{ color: "#C2C2C1" }}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
+            <Text style={{ color: "#0A6DD6" }}> Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
