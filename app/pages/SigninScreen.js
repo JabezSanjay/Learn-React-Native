@@ -42,6 +42,7 @@ const SigninScreen = ({ navigation }) => {
         autoCapitalize="none"
         onChangeText={(password) => setValues({ ...values, password })}
         value={values.password}
+        secureTextEntry={true}
       />
 
       <TouchableOpacity style={styles.submitButton}>
